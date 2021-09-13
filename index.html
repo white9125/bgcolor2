@@ -31,7 +31,7 @@
     <div class="btns">
         <button class="btn_toggle">배경색상 토글버튼</button>
         <button class="btn--reset">배경색상 리셋</button>
-        <button class="btn--bggrayt">배경색상변경 그레이</button>
+        <button class="btn--bggray">배경색상변경 그레이</button>
         
     </div>
     <script>
@@ -41,7 +41,11 @@
         });
         const btnReset = document.querySelector('.btn--reset');
         btnReset.addEventListener('click', function() {
-            document.body.classList.remove('bgcolor--blue');
+            document.body.classList.remove('bgcolor--blue', 'bgcolor--gray');
+        });
+        const btnbggray = document.querySelector('.btn--bggray')
+        btnbggray.addEventListener('click', function () {
+            document.body.classList.add('bgcolor--gray');
         });
     </script>
 </body>
