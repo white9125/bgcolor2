@@ -12,6 +12,9 @@
         .bgcolor--blue{
             background-color: lightblue;
         }
+        .bgcolor--gray{
+            background-color:lightgray;
+        }
 
         .box{
             width: 100px;
@@ -25,13 +28,20 @@
     </style>
 </head>
 <body>
-    <button class="btn_bg">배경색상변경</button>
+    <div class="btns">
+        <button class="btn_toggle">배경색상 토글버튼</button>
+        <button class="btn--reset">배경색상 리셋</button>
+        <button class="btn--bggrayt">배경색상변경 그레이</button>
+        
+    </div>
     <script>
-        const btn_bg = document.querySelector('.btn_bg');
-        //addEventListener
-        btn_bg.addEventListener('click', function ( ) {
+        const btntoggle = document.querySelector('.btn_toggle');
+        btntoggle.addEventListener('click', function() {
         document.body.classList.toggle('bgcolor--blue');
-        console.log('test');
+        });
+        const btnReset = document.querySelector('.btn--reset');
+        btnReset.addEventListener('click', function() {
+            document.body.classList.remove('bgcolor--blue');
         });
     </script>
 </body>
