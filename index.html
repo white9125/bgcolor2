@@ -16,14 +16,25 @@
             background-color:lightgray;
         }
 
+        .bging--gun{
+            background-image: url(gun.jpg);
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: 60%;
+
+        }
+
         .box{
             width: 100px;
             height: 100px;
             background-color: orange;
         }
 
-        .box--blue{
-            
+        .btns{
+            position: relative;
+            margin: auto;
+            text-align: center;
+            top: 120px;
         }
     </style>
 </head>
@@ -32,6 +43,7 @@
         <button class="btn_toggle">배경색상 토글버튼</button>
         <button class="btn--reset">배경색상 리셋</button>
         <button class="btn--bggray">배경색상변경 그레이</button>
+        <button class="btn--bgimg">배경이미지</button>
         
     </div>
     <script>
@@ -47,6 +59,10 @@
         btnbggray.addEventListener('click', function () {
             document.body.classList.add('bgcolor--gray');
         });
+        const btnbgimg = document.querySelector('.btn--bgimg');
+        btnbgimg.addEventListener('click', function() {
+            document.body.classList.toggle('bging--gun')
+        })
     </script>
 </body>
 </html>
