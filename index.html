@@ -55,6 +55,22 @@
         .bg__img--show{
             opacity: 1;
         }
+
+        .btns {
+            position: fixed;
+            padding: 10px;
+            background-color: transparent;
+            transition: 0.3s;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+            top: 60px;
+        }
+
+        .btns.bgshow{
+            background-color: tomato;
+        }
     </style>
 </head>
 <body>
@@ -73,34 +89,45 @@
     
     
     <script>
-      const bgContainer = document.querySelector('.bg__img');
+    const bgContainer = document.querySelector('.bg__img');
 
-      const btnToggle = document.querySelector('.btn_toggle');
+    const btnToggle = document.querySelector('.btn_toggle');
       // addEventListener('이벤트', 실행함수);
-      btnToggle.addEventListener('click', function () {
+    btnToggle.addEventListener('click', function () {
         bgContainer.classList.remove('bg__img--show');
         document.body.classList.toggle('bgcolor--blue');
         //console.log('버튼클릭');
-      });
-      
-      const btnReset = document.querySelector('.btn--reset');
+    });
+    
+    const btnReset = document.querySelector('.btn--reset');
       //document.querySelector('.btn--reset').addEventlistener
-      btnReset.addEventListener('click', function () {
+    btnReset.addEventListener('click', function () {
         bgContainer.classList.remove('bg__img--show');
         document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg--img');
-      });
-      
-      const btnBgGray = document.querySelector('.btn--bggray');
-      btnBgGray.addEventListener('click', function () {
+    });
+    
+    const btnBgGray = document.querySelector('.btn--bggray');
+    btnBgGray.addEventListener('click', function () {
         bgContainer.classList.remove('bg__img--show');
         document.body.classList.add('bgcolor--gray');
-      });
-  
-      const btnBgImg = document.querySelector('.btn--bgimg');
-      btnBgImg.addEventListener('click', function () {
+    });
+
+    const btnBgImg = document.querySelector('.btn--bgimg');
+    btnBgImg.addEventListener('click', function () {
         // document.body.classlist.add('bg--img');
         bgContainer.classList.add('bg__img--show');
-      });
+});
+    
+    const navcontainer = document.querySelector('.btns')
+    document.addEventListener('scroll', function () {
+        // console.log(window.scrollY);
+        if (window.scrollY > 100) {
+            navcontainer.classList.add('bgshow');
+        } else {
+            navcontainer.classList.remove('bgshow');
+        }
+    });
+
         </script>
 </body>
 </html>
