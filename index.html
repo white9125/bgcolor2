@@ -10,6 +10,7 @@
             background-color: lightyellow;
             transition: all 1s;
             margin: 0;
+            height: 2000px;
         }
         .bgcolor--blue{
             background-color: lightblue;
@@ -120,7 +121,7 @@
     
     const navcontainer = document.querySelector('.btns')
     document.addEventListener('scroll', function () {
-        // console.log(window.scrollY);
+        console.log(window.scrollY);
         if (window.scrollY > 100) {
             navcontainer.classList.add('bgshow');
         } else {
