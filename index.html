@@ -8,6 +8,8 @@
     <style>
         body{
             background-color: lightyellow;
+            transition: all 1s;
+            margin: 0;
         }
         .bgcolor--blue{
             background-color: lightblue;
@@ -16,13 +18,13 @@
             background-color:lightgray;
         }
 
-        .bging--gun{
+        /* .bging--gun{
             background-image: url(gun.jpg);
             background-repeat: no-repeat;
             background-position: top;
             background-size: 60%;
 
-        }
+        } */
 
         .box{
             width: 100px;
@@ -36,33 +38,69 @@
             text-align: center;
             top: 120px;
         }
+        
+        .bg__img{  
+            margin: 0;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background: url('gun.jpg');
+            transition: all 1s;
+            opacity: 0;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 60%;
+        }
+
+        .bg__img--show{
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
+    <div class="bg__img"></div>
     <div class="btns">
+        <div class="container">
+            <div class="btns__menu">
         <button class="btn_toggle">배경색상 토글버튼</button>
         <button class="btn--reset">배경색상 리셋</button>
         <button class="btn--bggray">배경색상변경 그레이</button>
         <button class="btn--bgimg">배경이미지</button>
-        
     </div>
+    </div>
+    </div>
+
+    
+    
     <script>
-        const btntoggle = document.querySelector('.btn_toggle');
-        btntoggle.addEventListener('click', function() {
+      const bgContainer = document.querySelector('.bg__img');
+
+      const btnToggle = document.querySelector('.btn_toggle');
+      // addEventListener('이벤트', 실행함수);
+      btnToggle.addEventListener('click', function () {
+        bgContainer.classList.remove('bg__img--show');
         document.body.classList.toggle('bgcolor--blue');
-        });
-        const btnReset = document.querySelector('.btn--reset');
-        btnReset.addEventListener('click', function() {
-            document.body.classList.remove('bgcolor--blue', 'bgcolor--gray');
-        });
-        const btnbggray = document.querySelector('.btn--bggray')
-        btnbggray.addEventListener('click', function () {
-            document.body.classList.add('bgcolor--gray');
-        });
-        const btnbgimg = document.querySelector('.btn--bgimg');
-        btnbgimg.addEventListener('click', function() {
-            document.body.classList.toggle('bging--gun')
-        })
-    </script>
+        //console.log('버튼클릭');
+      });
+      
+      const btnReset = document.querySelector('.btn--reset');
+      //document.querySelector('.btn--reset').addEventlistener
+      btnReset.addEventListener('click', function () {
+        bgContainer.classList.remove('bg__img--show');
+        document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg--img');
+      });
+      
+      const btnBgGray = document.querySelector('.btn--bggray');
+      btnBgGray.addEventListener('click', function () {
+        bgContainer.classList.remove('bg__img--show');
+        document.body.classList.add('bgcolor--gray');
+      });
+  
+      const btnBgImg = document.querySelector('.btn--bgimg');
+      btnBgImg.addEventListener('click', function () {
+        // document.body.classlist.add('bg--img');
+        bgContainer.classList.add('bg__img--show');
+      });
+        </script>
 </body>
 </html>
