@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <style>
         body{
             background-color: lightyellow;
@@ -26,12 +27,6 @@
             background-size: 60%;
 
         } */
-
-        .box{
-            width: 100px;
-            height: 100px;
-            background-color: orange;
-        }
 
         .btns{
             position: relative;
@@ -72,6 +67,16 @@
         .btns.bgshow{
             background-color: tomato;
         }
+
+        .Top{
+            position: fixed;
+            top: 400px;
+            right: 20%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +90,9 @@
         <button class="btn--bgimg">배경이미지</button>
     </div>
     </div>
+    </div>
+    <div class="Top" onclick="topup()">
+        <img src="up.png" alt="">
     </div>
 
     
@@ -128,7 +136,19 @@
             navcontainer.classList.remove('bgshow');
         }
     });
+    
+    document.addEventListener('scroll',function(){
+            if(window.scrollY > 500){
+            document.querySelector(".Top").style.display = "block";
+            console.log("500");
+            }else{
+                document.querySelector(".Top").style.display = "none";
+            }
+        });
 
+        function topup(){
+            window.scrollTo({top:0, left:0, behavior:'smooth'});
+        }
         </script>
 </body>
 </html>
