@@ -5,54 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <style>
         body{
             background-color: lightyellow;
             transition: all 1s;
             margin: 0;
-            height: 2000px;
+            height: 3000px;
         }
         .bgcolor--blue{
-            background-color: lightblue;
+            background-color: blue;
         }
         .bgcolor--gray{
-            background-color:lightgray;
-        }
-
-        /* .bging--gun{
-            background-image: url(gun.jpg);
-            background-repeat: no-repeat;
-            background-position: top;
-            background-size: 60%;
-
-        } */
-
-        .btns{
-            position: relative;
-            margin: auto;
-            text-align: center;
-            top: 120px;
+            background-color: lightgray;
         }
         
-        .bg__img{  
+        .bg__img{
             margin: 0;
             position: absolute;
             width: 100vw;
             height: 100vh;
-            background: url('gun.jpg');
+            background: url(gun.jpg); 
             transition: all 1s;
             opacity: 0;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 60%;
         }
-
         .bg__img--show{
             opacity: 1;
         }
-
-        .btns {
+        .btns{
             position: fixed;
             padding: 10px;
             background-color: transparent;
@@ -62,20 +41,54 @@
             right: 0;
             text-align: center;
             top: 60px;
+            
         }
-
-        .btns.bgshow{
-            background-color: tomato;
+        .btns.bgshow {
+            background-color: skyblue;
         }
-
         .Top{
             position: fixed;
-            top: 400px;
-            right: 20%;
+            top: 800px;
+            right: 10%;
             width: 50px;
             height: 50px;
             cursor: pointer;
             display: none;
+            animation: fadein 1s;
+        }
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        section{
+            width: 100%;
+            text-align: center;
+        }
+
+        .wrapper{
+            margin: auto;
+            max-width: 1200px;
+        }
+
+        #home{
+            padding-top: 88px;
+            text-align: center;
+        }
+
+        h1{
+            color: cornflowerblue;
+            font-size: 48px;
+        }
+        h2{
+            font-size: 32px;
+        }
+        h3{
+            font-size: 24px;
+            font-weight: 300;
         }
     </style>
 </head>
@@ -84,60 +97,107 @@
     <div class="btns">
         <div class="container">
             <div class="btns__menu">
-        <button class="btn_toggle">배경색상 토글버튼</button>
-        <button class="btn--reset">배경색상 리셋</button>
-        <button class="btn--bggray">배경색상변경 그레이</button>
-        <button class="btn--bgimg">배경이미지</button>
-    </div>
-    </div>
+                <button class="btn_toggle">home</button>
+                <button class="btn--reset">about</button>
+                <button class="btn--bggray">skills</button>
+                <button class="btn--work">work</button>
+                <button class="btn--contact">contact me</button>    
+            </div>
+        </div>
     </div>
     <div class="Top" onclick="topup()">
-        <img src="up.png" alt="">
+        <img src="topup.png" alt="">
     </div>
-
-    
-    
+    <section id="home">
+        <div class="wrapper">
+            <h1>Home</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
+    <section id="about">
+        <div class="wrapper">
+            <h1>about</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
+    <section id="skills">
+        <div class="wrapper">
+            <h1>skills</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
+    <section id="work">
+        <div class="wrapper">
+            <h1>wokr</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="wrapper">
+            <h1>contact me</h1>
+            <h2>Lorem ipsum dolor sit amet</h2>
+            <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, optio!</h3>
+        </div>
+    </section>
     <script>
-    const bgContainer = document.querySelector('.bg__img');
+        const bgContainer = document.querySelector('.bg__img');
+        const btnToggle = document.querySelector('.btn_toggle');
+        const home = document.querySelector('#home');
 
-    const btnToggle = document.querySelector('.btn_toggle');
-      // addEventListener('이벤트', 실행함수);
-    btnToggle.addEventListener('click', function () {
-        bgContainer.classList.remove('bg__img--show');
-        document.body.classList.toggle('bgcolor--blue');
-        //console.log('버튼클릭');
-    });
-    
-    const btnReset = document.querySelector('.btn--reset');
-      //document.querySelector('.btn--reset').addEventlistener
-    btnReset.addEventListener('click', function () {
-        bgContainer.classList.remove('bg__img--show');
-        document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg--img');
-    });
-    
-    const btnBgGray = document.querySelector('.btn--bggray');
-    btnBgGray.addEventListener('click', function () {
-        bgContainer.classList.remove('bg__img--show');
-        document.body.classList.add('bgcolor--gray');
-    });
+        btnToggle.addEventListener('click', function()  {
+            bgContainer.classList.remove('bg__img--show');
+            document.body.classList.toggle('bgcolor--blue');
+            home.scrollIntoView({behavior:"smooth", block:"start"});
+        });
+        const btnReset = document.querySelector('.btn--reset');
+        const about = document.querySelector('#about');
+        btnReset.addEventListener('click', function()  {
+            bgContainer.classList.remove('bg__img--show');
+            document.body.classList.remove('bgcolor--blue', 'bgcolor--gray', 'bg__img' );
+            about.scrollIntoView({behavior:"smooth", block:"start"});
+        });
+        const btnBgGray = document.querySelector('.btn--bggray');
+        const skills = document.querySelector('#skills');
+            btnBgGray.addEventListener('click', function(){
+            bgContainer.classList.remove('bg__img--show');
+            document.body.classList.add('bgcolor--gray');
+            skills.scrollIntoView({behavior:"smooth", block:"start"});
+        });
+        
+        // const btnbgImg = document.querySelector('.btn--bgimg');
+        // btnbgImg.addEventListener('click',function(){
+        //     bgContainer.classList.add('bg__img--show');
+        // });
 
-    const btnBgImg = document.querySelector('.btn--bgimg');
-    btnBgImg.addEventListener('click', function () {
-        // document.body.classlist.add('bg--img');
-        bgContainer.classList.add('bg__img--show');
-});
-    
-    const navcontainer = document.querySelector('.btns')
-    document.addEventListener('scroll', function () {
-        console.log(window.scrollY);
-        if (window.scrollY > 100) {
-            navcontainer.classList.add('bgshow');
-        } else {
-            navcontainer.classList.remove('bgshow');
-        }
-    });
-    
-    document.addEventListener('scroll',function(){
+        const contact = document.querySelector('#contact');
+        const contactbtn = document.querySelector('.btn--contact');
+        contactbtn.addEventListener('click', function(){
+        contact.scrollIntoView({behavior:"smooth", block:"start"});
+        });
+
+        const work = document.querySelector('#work');
+        const workbtn = document.querySelector('.btn--work');
+        workbtn.addEventListener('click', function(){
+        work.scrollIntoView({behavior:"smooth", block:"start"});
+        });
+
+        const navContainer = document.querySelector('.btns')
+        document.addEventListener('scroll' , function(){
+            // console.log(window.screenY);
+            if (window.scrollY > 100 ) {
+                navContainer.classList.add('bgshow');
+            } else {
+                navContainer.classList.remove('bgshow');
+            }
+        });
+
+        
+
+        document.addEventListener('scroll',function(){
             if(window.scrollY > 500){
             document.querySelector(".Top").style.display = "block";
             console.log("500");
@@ -149,6 +209,7 @@
         function topup(){
             window.scrollTo({top:0, left:0, behavior:'smooth'});
         }
-        </script>
+
+    </script>
 </body>
 </html>
