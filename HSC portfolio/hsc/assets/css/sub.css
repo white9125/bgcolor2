@@ -1,0 +1,19 @@
+body {
+    background-color: aliceblue;
+}
+
+img {
+    width: 100%;
+    text-align: center;
+}
+
+.no {
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    border: 0;
+    outline: 0;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+}
